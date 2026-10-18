@@ -1,0 +1,25 @@
+# ===== 数据集（约 45MB，不纳入版本管理）=====
+Pytorch/hymenoptera_data/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+
+# ===== 模型与训练产物 =====
+*.pth
+*.pt
+*.onnx
+runs/
+logs/
+checkpoints/
+
+# ===== 系统/编辑器 =====
+.DS_Store
+Thumbs.db
