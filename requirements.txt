@@ -1,0 +1,9 @@
+# Python 3.11
+# torch 为 CPU 版；需要 CUDA 请改用 https://download.pytorch.org/whl/cu124
+torch==2.5.1
+torchvision==0.20.1
+tensorboard==2.21.0
+Pillow==11.1.0
+numpy==1.23.5
+matplotlib==3.7.2
+ipykernel==7.3.0

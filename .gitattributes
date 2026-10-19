@@ -1,0 +1,11 @@
+# Notebook 是 JSON，禁止换行符转换，避免整文件无谓 diff
+*.ipynb -text
+
+# Python 源码在仓库内统一 LF，避免不同设备 autocrlf 设置不一致导致反复改写
+*.py text eol=lf
+
+# 二进制文件
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.tfevents.* binary
