@@ -1,5 +1,7 @@
 # ===== 数据集（约 45MB，不纳入版本管理）=====
-Pytorch/hymenoptera_data/
+pytorch/hymenoptera_data/
+pytorch/data/
+pytorch/dataset/
 
 # ===== Python =====
 __pycache__/
