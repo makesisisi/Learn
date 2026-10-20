@@ -49,6 +49,46 @@ pytorch/data/val/bees/*.jpg
 
 从旧设备拷贝，或重新下载 [hymenoptera_data](https://download.pytorch.org/tutorial/hymenoptera_data.zip)。
 
+## TensorBoard 可视化
+
+`pytorch/TensorBoard.py` 把标量写入事件文件，用 TensorBoard 网页查看曲线。
+
+### 生成与查看
+
+```bash
+conda activate pytorch
+
+# 事件目录由运行时的当前工作目录决定：
+# VS Code 按 F5 运行时 cwd 是仓库根目录 → 写入 Learn/logs/
+python pytorch/TensorBoard.py
+
+# 在仓库根目录启动，--logdir 相对当前终端目录
+tensorboard --logdir logs --port 6006
+# 或在任意目录用绝对路径
+tensorboard --logdir "D:\Documents\AI\Learn\logs" --port 6006
+```
+
+浏览器打开 <http://localhost:6006>，进入 **SCALARS** 页查看。
+
+### 注意事项
+
+- **`add_scalar(tag, scalar_value, global_step)`**：第二个参数是 y 值，第三个是横轴 step。
+  写反成 `add_scalar(tag, i, np.sin(i))` 会让所有点挤在 step=0，曲线上什么也看不到。
+- 每次运行新建 `events.out.tfevents.<时间戳>.<主机>.<PID>.<序号>`；TensorBoard 约每 5 秒
+  自动重扫目录，**刷新浏览器即可看到新数据，无需重启服务**。
+- 事件文件全在同一个 `logs/` 下时会被视为同一个 run，而 step 每次从 0 开始，新旧数据互相覆盖。
+  想让每次运行成为一条独立曲线，用子目录区分：
+
+  ```python
+  from datetime import datetime
+  writer = SummaryWriter(f"logs/exp_{datetime.now():%Y%m%d_%H%M%S}")
+  ```
+
+  此时 `--logdir` 指向父目录 `logs`，每个子目录是一个 run。
+- `logs/` 已在 `.gitignore` 中，事件文件不入库；数据异常时可直接删除或加后缀（如 `.bak`）后重跑。
+- tensorboard 只装在 `pytorch` 这个 conda 环境里。普通终端需先 `conda activate pytorch`，
+  或直接调用 `D:\conda_envs\pytorch\Scripts\tensorboard.exe`。
+
 ## 跨设备同步流程
 
 ### 日常三步
