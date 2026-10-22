@@ -8,5 +8,8 @@
             "packageManager": "ms-python.python:conda"
         }
     ],
-    "debug.showVariableTypes": true
+    "debug.showVariableTypes": true,
+    "code-runner.executorMap": {
+        "python": "$pythonPath -u $fullFileName"
+    }
 }
