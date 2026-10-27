@@ -4,6 +4,10 @@ torch==2.5.1
 torchvision==0.20.1
 tensorboard==2.21.0
 Pillow==11.1.0
+# numpy 必须留在 1.x：d2l 1.0.3 钉死 1.23.5，scipy 1.10 要求 <1.27，
+# 且 pandas / matplotlib 是针对 numpy 1.x 编译的轮子，升到 2.x 会 import 失败
 numpy==1.23.5
 matplotlib==3.7.2
 ipykernel==7.3.0
+# opencv 5.x 强制 numpy>=2（会连带打坏上面的包），所以钉在 4.10
+opencv-python==4.10.0.84
