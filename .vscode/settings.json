@@ -1,13 +1,7 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",
-    "python-envs.pythonProjects": [
-        {
-            "path": ".",
-            "envManager": "ms-python.python:conda",
-            "packageManager": "ms-python.python:conda"
-        }
-    ],
+    "python.defaultInterpreterPath": "D:\\conda_envs\\pytorch\\python.exe",
     "debug.showVariableTypes": true,
     "code-runner.executorMap": {
         "python": "$pythonPath -u $fullFileName"

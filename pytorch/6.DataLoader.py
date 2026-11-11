@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 
 shutil.rmtree("logs", ignore_errors=True)
 
-test_set = torchvision.datasets.CIFAR10("4Dataset",transform=transforms.ToTensor(),train=False)
+test_set = torchvision.datasets.dCIFAR10("4Dataset",transform=transforms.ToTensor(),train=False, download=True)
 
 test_loader = DataLoader(dataset=test_set,batch_size=4,shuffle=True, num_workers=0,drop_last=False)
 
