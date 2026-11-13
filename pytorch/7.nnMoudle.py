@@ -7,4 +7,3 @@ class Model(nn.modules):
     def forward(self,x):
         x = F.relu(nn.conv2d(x));
         return F.relu(nn.conv2d(x))
-    

@@ -16,5 +16,10 @@ input_ = input_.reshape(1, 1, 5, 5)
 kernel = kernel.reshape(1, 1, 3, 3)
 
 output = F.conv2d(input_, kernel)
+print(output)
 
+output = F.conv2d(input_, kernel, stride=2)
+print(output)
+
+output = F.conv2d(input_, kernel, padding=1)
 print(output)
